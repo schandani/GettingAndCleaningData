@@ -2,7 +2,7 @@
 ## Project Assignment - Tidy Data     #
 #######################################
 ##run_analysis<-function(logPrint=FALSE){
-	logPrint=FALSE
+    logPrint=FALSE
     ## 1. The following script merges the training and the test sets to create one data set
     ## create 3 
     ##library(tidyr)
@@ -61,9 +61,8 @@
     activityLblDF <- read.table("./data/UCI HAR Dataset/activity_labels.txt")
     activityLblDF[, 2]<-tolower(as.character(activityLblDF[, 2]))
     Y[,1]<-activityLblDF[Y[,1], 2]
-    if (logPrint){
-        names(Y) <- "Activity"
-    }
+    names(Y) <- "Activity"
+
     ##4. Appropriately label the data set with descriptive activity names
     names(sub) <- "Subject"
     tidyData <- cbind(sub, Y, X)  ## do column binding of subject, activity and observations
@@ -87,5 +86,5 @@
             rowCnt<-rowCnt+1
         }
     }
-    write.table(avgTidyData, "TidyDataWithMeans.txt")
+    write.table(avgTidyData, "TidyDataWithMeans.txt", row.name=FALSE)
 ##}
