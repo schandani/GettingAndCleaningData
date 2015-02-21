@@ -2,48 +2,45 @@
 ## Project Assignment - Tidy Data     #
 #######################################
 ##run_analysis<-function(logPrint=FALSE){
-    logPrint=FALSE
-    ## 1. The following script merges the training and the test sets to create one data set
-    ## create 3 
-    ##library(tidyr)
-    ##library(data.table)
-    if(!file.exists("./data/UCI HAR Dataset/test/X_test.txt")){
+    logPrint=TRUE
+    ## 1. The following script merges the training and the test sets to create a single data set
+    if(!file.exists("./UCI HAR Dataset/test/X_test.txt")){
         return("Raw Data set doesn't exist for test data")
     }
-    testXDF<-read.table("./data/UCI HAR Dataset/test/X_test.txt")
+    testXDF<-read.table("./UCI HAR Dataset/test/X_test.txt")
     if (logPrint){
         print(head(testXDF))
         print(paste("Raw Test X Data read with rows=", nrow(testXDF)))
     }
     
-    if(!file.exists("./data/UCI HAR Dataset/train/X_train.txt")){
+    if(!file.exists("./UCI HAR Dataset/train/X_train.txt")){
         return("Raw Data set doesn't exist for train data")
     }
-    trainXDF<-read.table("./data/UCI HAR Dataset/train/X_train.txt")
+    trainXDF<-read.table("./UCI HAR Dataset/train/X_train.txt")
     if (logPrint){
         print(head(trainXDF))
         print(paste("Raw Train X Data read with rows=", nrow(trainXDF)))
     }
     X<-rbind(testXDF,trainXDF)
     if (logPrint){
-        print(paste("Combined X Data read with rows=", nrow(X), " and cols=", ncol(X)))
+        print(paste("Combined X Data read with rows=", nrow(X), " and cols=", ncol(X))) ##19299x561
     }
     
     ##Here on forward we'll assume that the rest of the data exists since raw data exists
-    testYDF<-read.table("./data/UCI HAR Dataset/test/Y_test.txt")
-    trainYDF<-read.table("./data/UCI HAR Dataset/train/Y_train.txt")
+    testYDF<-read.table("./UCI HAR Dataset/test/Y_test.txt")
+    trainYDF<-read.table("./UCI HAR Dataset/train/Y_train.txt")
     Y<-rbind(testYDF, trainYDF)
     if (logPrint){
         print(paste("Combined Y Data read with rows=", nrow(Y)))
     }
-    testSubDF<-read.table("./data/UCI HAR Dataset/test/subject_test.txt")
-    trainSubDF<-read.table("./data/UCI HAR Dataset/train/subject_train.txt")
+    testSubDF<-read.table("./UCI HAR Dataset/test/subject_test.txt")
+    trainSubDF<-read.table("./UCI HAR Dataset/train/subject_train.txt")
     sub<-rbind(testSubDF,trainSubDF)
     if (logPrint){
         print(paste("Combined Subject Data read with rows=", nrow(sub)))
     }
     ## 2: Extract only the measurements on the mean and standard deviation for each measurement:
-    featuresDF <- read.table("./data/UCI HAR Dataset/features.txt")
+    featuresDF <- read.table("./UCI HAR Dataset/features.txt")
     neededFeaturesDF <- grep("-mean\\(\\)|-std\\(\\)", featuresDF[, 2])  ## grep '-mean' or '-std'
     if (logPrint){
         print(neededFeaturesDF)
@@ -58,7 +55,7 @@
         print(names(X))
     }
     ##3: Uses descriptive activity names to name the activities in the data set
-    activityLblDF <- read.table("./data/UCI HAR Dataset/activity_labels.txt")
+    activityLblDF <- read.table("./UCI HAR Dataset/activity_labels.txt")
     activityLblDF[, 2]<-tolower(as.character(activityLblDF[, 2]))
     Y[,1]<-activityLblDF[Y[,1], 2]
     names(Y) <- "Activity"
