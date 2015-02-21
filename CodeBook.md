@@ -14,7 +14,7 @@ Verify that the working directory is properly set by using the getwd() command.
 
 The attached R script (run_analysis.R) performs the following to clean up the data.
 It can be converted as a function by un-commenting the following line:
-##run_analysis<-function(logPrint=FALSE){
+`##run_analysis<-function(logPrint=FALSE){`
 and un-commenting the last line in the script as well as commenting out the first 
 line that sets the variable logPrint.
 
@@ -49,17 +49,24 @@ such that the first column contains subject identifications in the range of 1 an
 
  The names of the attributes are similar to the following:
 	tBodyAcc-mean-X
+	
 	tBodyAcc-mean-Y
+	
 	tBodyAcc-mean-Z"
+	
 	tBodyAcc-std-X
+	
 	tBodyAcc-std-Y
+	
 	tBodyAcc-std-Z
+	
 	tGravityAcc-mean-X
+	
 	
 In this step, the full data set is written to a text file called MergedTidayData.txt
 
 
 * Finally, the 5th section has the script that creates a separate tidy data set with the average of each measurement for each activity and each subject. 
-The result is saved as TidyDataWithMeans.txt, a 180x68 data frame.  Write.table function is used and row.name is set to FALSE when writing the data to 
+The result is saved as TidyDataWithMeans.txt, a 180x68 data frame.  Write.table function is used and `row.name` is set to `FALSE` when writing the data to 
 the file.  The first column contains subject id,  the second column contains activity name, and the averages for each of the 66 attributes are in columns 3 to 68. There are 30 subjects and 6 activities in all, for  a total of  
  180 rows in this data set with averages.
