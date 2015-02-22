@@ -73,7 +73,7 @@ such that the first column contains subject identifications in the range of 1 an
 	tGravityAcc-mean-X
 	
 	
-In this step, the full data set is written to a text file called MergedTidayData.txt using the `write.table` function.
+    In this step, the full data set is written to a text file called MergedTidayData.txt using the `write.table` function.
 
 
 * Finally, the 5th section has the script that creates a separate tidy data set with the average of each measurement for each activity and each subject. 
