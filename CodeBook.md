@@ -16,11 +16,13 @@ The attached R script (run_analysis.R) performs the following to clean up the da
 It can be converted as a function by un-commenting the following line:
 `##run_analysis<-function(logPrint=FALSE){`
 and un-commenting the last line in the script as well as commenting out the first 
-line that sets the variable logPrint.
+line that sets the variable `logPrint`.
 
-logPrint is a boolean that can be set to TRUE or FALSE. 
-* FALSE=turn off printing of log messages, 
-* TRUE=turn on printing of log messages
+`logPrint` is a boolean variable that can be set to TRUE or FALSE. 
+
+`FALSE`=turn off printing of log messages, 
+
+`TRUE`=turn on printing of log messages
 
 * The first section of the script does the following:
  It merges the training and test sets to create one data set, namely train/X_train.txt with test/X_test.txt, 
@@ -35,12 +37,19 @@ measurements on either the mean or the standard deviation attributes.
 All wearable computing measurements are decimal numbers in the range of -1 to 1.
 
 * The 3rd section reads activity_labels.txt file and applies descriptive activity names to name the activities in the data set:
+
         walking
+		
         walking_upstairs
+		
         walking_downstairs
+		
         sitting
+		
         standing
+		
         laying
+		
 
 * The 4th section of the script appropriately labels the data set with descriptive variable names. It combines the 10299x66 data frame containing features 
 with 10299x1 data frames containing activity labels and subject identifications. The result is saved as merged_clean_data.txt, a 10299x68 data frame 
@@ -48,6 +57,7 @@ such that the first column contains subject identifications in the range of 1 an
 3 above, and the last 66 columns are the measurements.  
 
  The names of the attributes are similar to the following:
+ 
 	tBodyAcc-mean-X
 	
 	tBodyAcc-mean-Y
@@ -63,10 +73,10 @@ such that the first column contains subject identifications in the range of 1 an
 	tGravityAcc-mean-X
 	
 	
-In this step, the full data set is written to a text file called MergedTidayData.txt
+In this step, the full data set is written to a text file called MergedTidayData.txt using the `write.table` function.
 
 
 * Finally, the 5th section has the script that creates a separate tidy data set with the average of each measurement for each activity and each subject. 
-The result is saved as TidyDataWithMeans.txt, a 180x68 data frame.  Write.table function is used and `row.name` is set to `FALSE` when writing the data to 
+The result is saved as TidyDataWithMeans.txt, a 180x68 data frame.  `write.table` function is used and `row.name` is set to `FALSE` when writing the data to 
 the file.  The first column contains subject id,  the second column contains activity name, and the averages for each of the 66 attributes are in columns 3 to 68. There are 30 subjects and 6 activities in all, for  a total of  
  180 rows in this data set with averages.
