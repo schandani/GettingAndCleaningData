@@ -13,9 +13,10 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 * Put run_analysis.R into `C:\Users\<yourname>\Documents\data\UCI HAR Dataset`
 
-* In RStudio: setwd("C:\\\\Users\\\\<yourname>\\\\Documents\\\\data\\\\UCI HAR Dataset"), 
+* In RStudio: setwd("C:\\\\Users\\\\<yourname>\\\\Documents\\\\data\\\\UCI HAR Dataset")
 
-* Ensure that the working directory is properly set by using the getwd() command.
+* Ensure that the working directory is properly set by using the getwd() command
+		You should see something like [1] "C:/Users/<yourname>/Documents/data/UCI HAR Dataset"
 
 * Run the source by using this command: source("run_analysis.R")
 

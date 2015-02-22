@@ -9,7 +9,7 @@ The location of raw data for the project is at this url saved in a compressed zi
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 The above zip file needs to be extracted in a working directory.
-Set this working directory using either setwd() command or using the menu options.
+Set this working directory using either setwd() command or using the menu options in RStudio under 'session'.
 Verify that the working directory is properly set by using the getwd() command.
 
 The attached R script (run_analysis.R) performs the following to clean up the data.
@@ -58,19 +58,19 @@ such that the first column contains subject identifications in the range of 1 an
 
  The names of the attributes are similar to the following:
  
-	tBodyAcc-mean-X
+		tBodyAcc-mean-X
 	
-	tBodyAcc-mean-Y
+		tBodyAcc-mean-Y
 	
-	tBodyAcc-mean-Z"
+		tBodyAcc-mean-Z"
 	
-	tBodyAcc-std-X
+		tBodyAcc-std-X
 	
-	tBodyAcc-std-Y
+		tBodyAcc-std-Y
 	
-	tBodyAcc-std-Z
+		tBodyAcc-std-Z
 	
-	tGravityAcc-mean-X
+		tGravityAcc-mean-X
 	
 	
     In this step, the full data set is written to a text file called MergedTidayData.txt using the `write.table` function.
