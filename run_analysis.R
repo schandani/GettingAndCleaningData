@@ -3,7 +3,7 @@
 #######################################
 ##run_analysis<-function(logPrint=FALSE){
     logPrint=TRUE
-    ## 1. The following script merges the training and the test sets to create a single data set
+    ## Section 1. The following script merges the training and the test sets to create a single data set
     if(!file.exists("./UCI HAR Dataset/test/X_test.txt")){
         return("Raw Data set doesn't exist for test data")
     }
@@ -39,7 +39,8 @@
     if (logPrint){
         print(paste("Combined Subject Data read with rows=", nrow(sub)))
     }
-    ## 2: Extract only the measurements on the mean and standard deviation for each measurement:
+    ## Section 2: Extract only the measurements on the mean and standard deviation for each measurement
+    ## using regexp
     featuresDF <- read.table("./UCI HAR Dataset/features.txt")
     neededFeaturesDF <- grep("-mean\\(\\)|-std\\(\\)", featuresDF[, 2])  ## grep '-mean' or '-std'
     if (logPrint){
@@ -54,19 +55,19 @@
     if (logPrint){
         print(names(X))
     }
-    ##3: Uses descriptive activity names to name the activities in the data set
+    ##Section 3: Read descriptive activity label names to name the activities in the data set
     activityLblDF <- read.table("./UCI HAR Dataset/activity_labels.txt")
     activityLblDF[, 2]<-tolower(as.character(activityLblDF[, 2]))
     Y[,1]<-activityLblDF[Y[,1], 2]
     names(Y) <- "Activity"
 
-    ##4. Appropriately label the data set with descriptive activity names
+    ##Section 4. Appropriately label the data set with descriptive activity names
     names(sub) <- "Subject"
     tidyData <- cbind(sub, Y, X)  ## do column binding of subject, activity and observations
     write.table(tidyData, "MergedTidyData.txt")
 
 
-    ## 5. Second tidy data set with the average of each variable for each activity and each subject
+    ##Section 5. Second tidy data set with the average of each variable for each activity and each subject
     uniqueSubjs<-unique(sub)[,1]
     numSubs<-length(unique(sub)[,1])
     numActs<-length(activityLblDF[,1])
