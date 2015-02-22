@@ -5,7 +5,7 @@ The wearable computing data linked to from the course website represent data col
 Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained: 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
 
-The location of the for the project: 
+The location of raw data for the project is at this url saved in a compressed zip file: 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 The above zip file needs to be extracted in a working directory.
